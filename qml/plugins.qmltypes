@@ -1,0 +1,12 @@
+{
+    "module": "com.wearily.WeaQuick",
+    "version": "1.0",
+    "classes": [
+        {
+            "name": "Button",
+            "extends": "QQuick.Item",
+            "file": "Button.qml",
+            "decription": "Simple Button of WeaQuick"
+        }
+    ]
+}

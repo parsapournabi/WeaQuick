@@ -1,0 +1,29 @@
+#ifndef INITIALIZE_H
+#define INITIALIZE_H
+
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QQuickItem>
+
+#include "init.h"
+#include "config.h"
+
+WEAQUICK_NAMESPACE_BEGIN
+
+/*!
+ * \brief initialize : Initializing WeaQuick Module.
+ * \details adding ImportPaths & Loading some plugins & registering C++ classes.
+ * \param engine : QQmlApplicationEngine* -> pass engine to automate everything.
+ */
+static void initialize(QQmlApplicationEngine* engine)
+{
+    if (engine)
+    {
+        engine->addImportPath(WeaQuick_QML_IMPORT_PATH);
+    }
+}
+
+WEAQUICK_NAMESPACE_END
+
+
+#endif // INITIALIZE_H

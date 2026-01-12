@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>plugins.qmltypes</file>
+        <file>qmldir</file>
+        <file>Button.qml</file>
+    </qresource>
+    <qresource prefix="/assets"/>
+</RCC>
