@@ -28,8 +28,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 # Optional QML support
 option(WITH_QML "Enable QML modules" ON)
 if(WITH_QML)
-    find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Qml Quick)
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Qml Quick)
+    find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Qml Quick QuickControls2)
+    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Qml Quick QuickControls2)
 
     # Generating config.h form config.h.in (WeaQuick_QML_IMPORT_PATH) must be assign from CMake.
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/config.h.in
@@ -66,7 +66,7 @@ target_include_directories(${MODULE_NAME}
 target_link_libraries(${MODULE_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Core)
 
 if(WITH_QML)
-    target_link_libraries(${MODULE_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Qml Qt${QT_VERSION_MAJOR}::Quick)
+    target_link_libraries(${MODULE_NAME} PUBLIC Qt${QT_VERSION_MAJOR}::Qml Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::QuickControls2)
 endif()
 
 # Export definition
