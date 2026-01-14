@@ -1,0 +1,6 @@
+module com.wearily.WeaQuick
+GlobalContext 1.0 GlobalContext.qml
+Button 1.0 Button.qml
+Theme 1.0 Theme.qml
+ThemeLight 1.0 ThemeLight.qml
+typeinfo plugins.qmltypes

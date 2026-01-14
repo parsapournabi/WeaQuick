@@ -1,8 +1,11 @@
 <RCC>
     <qresource prefix="/">
+        <file>Button.qml</file>
         <file>plugins.qmltypes</file>
         <file>qmldir</file>
-        <file>Button.qml</file>
+        <file>Theme.qml</file>
+        <file>GlobalContext.qml</file>
+        <file>ThemeLight.qml</file>
     </qresource>
     <qresource prefix="/assets"/>
 </RCC>

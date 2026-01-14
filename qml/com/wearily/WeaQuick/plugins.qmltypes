@@ -3,6 +3,12 @@
     "version": "1.0",
     "classes": [
         {
+            "name": "Theme",
+            "extends": "QQuick.Item",
+            "file": "Theme.qml",
+            "decription": "Base Singleton Theme QtObject"
+        },
+        {
             "name": "Button",
             "extends": "QQuick.Item",
             "file": "Button.qml",
