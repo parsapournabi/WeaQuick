@@ -28,7 +28,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 # Optional QML support
 option(WITH_QML "Enable QML modules" ON)
 if(WITH_QML)
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Qml Quick)
+    find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Qml Quick)
+    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Qml Quick)
 
     # Generating config.h form config.h.in (WeaQuick_QML_IMPORT_PATH) must be assign from CMake.
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/config.h.in
@@ -111,7 +112,7 @@ install(EXPORT ${MODULE_NAME}Targets
 # Install QML files (if exist)
 if(WITH_QML)
     set(QML_DEST "${CMAKE_INSTALL_PREFIX}/share/qml/com/wearily/${MODULE_NAME}")
-    install(DIRECTORY qml/
+    install(DIRECTORY qml/com/wearily/${MODULE_NAME}/
         DESTINATION ${QML_DEST}
         FILES_MATCHING PATTERN "*.qml" PATTERN "qmldir"
     )
