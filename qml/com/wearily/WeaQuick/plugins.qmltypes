@@ -9,6 +9,12 @@
             "decription": "Base Singleton Theme QtObject"
         },
         {
+            "name": "Pane",
+            "extends": "QQuick.Item",
+            "file": "Pane.qml",
+            "decription": "WeaQuick Complete Frame"
+        },
+        {
             "name": "Button",
             "extends": "QQuick.Item",
             "file": "Button.qml",

@@ -6,4 +6,5 @@ Theme 1.0 Theme.qml
 ThemeLight 1.0 ThemeLight.qml
 Pane 1.0 Pane.qml
 Button 1.0 Button.qml
+Label 1.0 Label.qml
 # typeinfo plugins.qmltypes

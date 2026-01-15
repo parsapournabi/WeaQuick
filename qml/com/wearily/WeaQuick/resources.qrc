@@ -9,6 +9,7 @@
         <file>Pane.qml</file>
         <file>DropShadowObject.qml</file>
         <file>DropShadowBinder.qml</file>
+        <file>Label.qml</file>
     </qresource>
     <qresource prefix="/assets"/>
 </RCC>
