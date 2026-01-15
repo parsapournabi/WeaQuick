@@ -3,6 +3,7 @@
 
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQuickStyle>
 #include <QQuickItem>
 
 #include "init.h"
@@ -21,6 +22,8 @@ static void initialize(QQmlApplicationEngine* engine)
     {
         engine->addImportPath(WeaQuick_QML_IMPORT_PATH);
     }
+    /** Base Configurations **/
+    QQuickStyle::setStyle("Material");
 }
 
 WEAQUICK_NAMESPACE_END
