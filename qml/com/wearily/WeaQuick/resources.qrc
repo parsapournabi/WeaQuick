@@ -6,6 +6,9 @@
         <file>Theme.qml</file>
         <file>GlobalContext.qml</file>
         <file>ThemeLight.qml</file>
+        <file>Pane.qml</file>
+        <file>DropShadowObject.qml</file>
+        <file>DropShadowBinder.qml</file>
     </qresource>
     <qresource prefix="/assets"/>
 </RCC>
