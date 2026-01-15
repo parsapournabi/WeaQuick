@@ -4,8 +4,8 @@ QtObject {
     id: root
 
     /** Panes **/
-    property var paneBackgroundColor: []
-    property var paneBorderColor: []
+    property var paneBackgroundColor: ["#050505", "#0A0A0A", "#0F0E0F", "#262426", "#302D30", "#4D474B", "#696066", "#7A7077"]
+    property var paneBorderColor: ["#050505", "#0A0A0A", "#0F0E0F", "#262426", "#302D30", "#4D474B", "#696066", "#7A7077"]
 
     /** Texts **/
     property var textColor: ["green"]
