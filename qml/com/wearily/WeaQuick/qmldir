@@ -7,4 +7,7 @@ ThemeLight 1.0 ThemeLight.qml
 Pane 1.0 Pane.qml
 Button 1.0 Button.qml
 Label 1.0 Label.qml
+ToolTip 1.0 ToolTip.qml
+FontAwesome 1.0 js/FontAwesome.js
+IconFont 1.0 IconFont.qml
 # typeinfo plugins.qmltypes
