@@ -86,4 +86,4 @@ CMakeLists.txt.user*
 *BUILD*
 .env
 .idea/*
-include/*config.h
+include/WeaQuick/config.h
