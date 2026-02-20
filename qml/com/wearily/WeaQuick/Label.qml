@@ -15,13 +15,13 @@ Q.Label {
     font: wQuick.theme.labelFont[fontLevel]
     color: wQuick.theme.textColor[level]
 
-    layer.enabled: true
+    layer.enabled: false
     layer.effect: DropShadowBinder {
         dropShadowObject: dropShadow
     }
     DropShadowObject {
         id: dropShadow
         color: "white"
-        radius: 2
+        radius: 1
     }
 }
