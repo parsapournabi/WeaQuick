@@ -34,20 +34,21 @@ QtObject {
     property var scrollHandlerSelectedBorderColor: []
 
     /** Fonts **/
+    property string fontFiraCodeFamily: "Fira Code %1".arg(
+                                            fontsMetaData[fontFiraCodeSuffixIndex])
+    property var fontsMetaData: ["Light", "Regular", "Medium", "SemiBold", "Bold", "Retina"]
+    property int fontFiraCodeSuffixIndex: 2
 
     /** Label Fonts **/
     property var labelFont: [Qt.font({
-                                         "family": "FontAwesome",
-                                         "weight": Font.DemiBold,
+                                         "family": fontFiraCodeFamily,
+                                         "weight": Font.Medium,
                                          "bold": false,
                                          "pixelSize": 12
-                                     })]
-
-    /** Buttons Fonts **/
-    property var buttonFont: [Qt.font({
-                                          "family": "FontAwesome",
-                                          "weight": Font.DemiBold,
-                                          "bold": false,
-                                          "pixelSize": 13
-                                      })]
+                                     }), Qt.font({
+                                                     "family": fontFiraCodeFamily,
+                                                     "weight": Font.Medium,
+                                                     "bold": false,
+                                                     "pixelSize": 12
+                                                 })]
 }
