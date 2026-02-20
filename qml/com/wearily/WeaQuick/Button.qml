@@ -1,6 +1,8 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls 2.12 as Q
 
+/// TODO: Add Normal Icon which uses Image component at base and load that with Loader (iconFont, iconPixmap, .etc).
 Rectangle {
     id: root
 
@@ -10,12 +12,31 @@ Rectangle {
     property bool checkable: false
     property bool checked: false
 
-    /** Alias Properties **/
-    property alias text: buttonText.text
-    property alias cursorShape: mouseArea.cursorShape
 
+    /*
+        display : enumeration -> Referer AbstractButton Display
+        AbstractButton.IconOnly
+        AbstractButton.TextOnly
+        AbstractButton.TextBesideIcon (default)
+        AbstractButton.TextUnderIcon
+    */
+    property int display: Q.AbstractButton.TextBesideIcon
+    property bool invert: true
+
+    /** Alias Properties **/
+    property alias text: label.text
+    property alias icon: icon.name
+    property alias spacing: layout.spacing
+    property alias cursorShape: mouseArea.cursorShape
+    property alias layoutDirection: layout.layoutDirection
+    property alias textVerticalAlignment: label.verticalAlignment
+    property alias textHorizontalAlignment: label.horizontalAlignment
+    property alias iconVerticalAlignment: icon.verticalAlignment
+    property alias iconHorizontalAlignment: icon.horizontalAlignment
+
+    property alias label: label
+    property alias iconItem: icon
     property alias dropShadow: dropShadow
-    property alias buttonLabel: buttonText
     property alias mouseArea: mouseArea
     property alias animationBackgroundColor: bgColorAnimation
 
@@ -55,7 +76,8 @@ Rectangle {
     states: [
         State {
             name: "default"
-            when: (!mouseArea.containsMouse && !mouseArea.containsPress)
+            when: (enabled && !mouseArea.containsMouse
+                   && !mouseArea.containsPress)
             PropertyChanges {
                 target: root
                 color: wQuick.theme.buttonBackgroundColor[level]
@@ -66,7 +88,8 @@ Rectangle {
         },
         State {
             name: "hovered"
-            when: (mouseArea.containsMouse && !mouseArea.containsPress)
+            when: (enabled && mouseArea.containsMouse
+                   && !mouseArea.containsPress)
             PropertyChanges {
                 target: root
                 color: wQuick.theme.buttonHoveredBackgroundColor[level]
@@ -75,13 +98,27 @@ Rectangle {
         },
         State {
             name: "pressed"
-            when: (mouseArea.containsMouse && mouseArea.containsPress)
+            when: (enabled && mouseArea.containsMouse
+                   && mouseArea.containsPress)
             PropertyChanges {
                 target: root
                 color: wQuick.theme.buttonSelectedBackgroundColor[level]
                 border.color: wQuick.theme.buttonSelectedBorderColor[level]
                 dropShadow.verticalOffset: 1.0
                 dropShadow.horizontalOffset: 1.0
+            }
+        },
+        State {
+            name: "disabled"
+            when: !enabled
+            PropertyChanges {
+                target: root
+                color: Qt.lighter(wQuick.theme.buttonBackgroundColor[level],
+                                  0.6)
+                border.color: color
+                label.color: Qt.darker(wQuick.theme.textColor[levelLabel], 3.0)
+                dropShadow.verticalOffset: 0.0
+                dropShadow.horizontalOffset: 0.0
             }
         }
     ]
@@ -95,13 +132,39 @@ Rectangle {
     ]
 
     /** Components **/
-    Text {
-        id: buttonText
-        anchors.centerIn: parent
-        color: wQuick.theme.textColor[levelLabel]
-        text: "WeaQuick Button"
-        font: wQuick.theme.buttonFont[0]
+    RowLayout {
+        id: layout
+        anchors {
+            fill: parent
+            margins: 5
+        }
+        spacing: 8
+        clip: true
+
+        IconFont {
+            id: icon
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.preferredWidth: 5
+            verticalAlignment: Qt.AlignVCenter
+            horizontalAlignment: !label.visible ? Qt.AlignHCenter : layout.layoutDirection
+                                                  === Qt.LeftToRight ? Qt.AlignRight : Qt.AlignLeft
+            visible: name.length > 0
+            name: ""
+        }
+
+        Label {
+            id: label
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.preferredWidth: 10
+            verticalAlignment: Qt.AlignVCenter
+            horizontalAlignment: !icon.visible ? Qt.AlignHCenter : layout.layoutDirection
+                                                 === Qt.LeftToRight ? Qt.AlignLeft : Qt.AlignRight
+            visible: text || text !== ""
+        }
     }
+
     MouseArea {
         id: mouseArea
         anchors.fill: parent
